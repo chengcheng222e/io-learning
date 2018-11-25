@@ -3,22 +3,24 @@ package com.cyblogs.io.learn.bio;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class BIOServer {
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket=new ServerSocket(8080);
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        ServerSocket serverSocket = new ServerSocket(8080);
         System.out.println("BIOServer has started,listening on port:" + serverSocket.getLocalSocketAddress());
 
-        Socket clientSocket = serverSocket.accept(); //等待被接受
-        System.out.println("Conection from " + clientSocket.getRemoteSocketAddress());
-
-        Scanner input=new Scanner(clientSocket.getInputStream());
-        String request=input.nextLine();
-        System.out.println(request);
-
-        String response="From BIOServer response： " + request + "\n";
-        clientSocket.getOutputStream().write(response.getBytes());
+        RequestHandler requestHandler = new RequestHandler();// 为了让多线程去切换
+        while (true) {
+            Socket clientSocket = null;
+            clientSocket = serverSocket.accept(); //等待被接受
+            System.out.println("Conection from " + clientSocket.getRemoteSocketAddress());
+            // 多线程处理
+            executor.submit(new ClientHandler(clientSocket, requestHandler));
+        }
     }
 }
