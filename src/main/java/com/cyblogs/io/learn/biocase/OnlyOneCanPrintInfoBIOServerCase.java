@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Date：2018/12/6
  * Time：8:22 AM
  */
-public class OnlyOneCanPrintInfoBIOServer {
+public class OnlyOneCanPrintInfoBIOServerCase {
 
     /**
      * 为什么会阻塞，阻塞在哪儿呢？

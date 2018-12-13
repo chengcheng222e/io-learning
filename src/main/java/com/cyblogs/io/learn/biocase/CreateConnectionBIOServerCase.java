@@ -12,7 +12,7 @@ import java.net.Socket;
  * Date：2018/12/3
  * Time：7:32 PM
  */
-public class CreateConnectionBIOServer {
+public class CreateConnectionBIOServerCase {
 
     public static void main(String[] args) throws IOException {
         int port = 8080;

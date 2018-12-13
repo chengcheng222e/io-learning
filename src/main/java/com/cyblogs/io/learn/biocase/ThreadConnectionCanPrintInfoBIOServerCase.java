@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  * Date：2018/12/6
  * Time：8:55 AM
  */
-public class ThreadConnectionCanPrintInfoBIOServer {
+public class ThreadConnectionCanPrintInfoBIOServerCase {
 
     public static void main(String[] args) throws IOException {
         ExecutorService executor = Executors.newFixedThreadPool(3);

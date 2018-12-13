@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Date：2018/12/6
  * Time：8:42 AM
  */
-public class MoreConnectionCanPrintInfoBIOServer {
+public class MoreConnectionCanPrintInfoBIOServerCase {
 
     public static void main(String[] args) throws IOException {
         int port = 8080;

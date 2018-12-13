@@ -13,14 +13,14 @@ import java.nio.channels.FileChannel;
  * Date：2018/12/13
  * Time：4:15 PM
  */
-public class ReadDataFromBuffer {
+public class ReadFile2WriteFileFromBufferCase {
 
     public static void main(String[] args) throws IOException {
 
         String outPath = "/Users/chenyuan/Workspaces/Github/io-learn/src/main/resources/write.txt";
 
-        FileOutputStream fileOutputStream = new FileOutputStream(outPath, true);
-        FileInputStream fileInputStream = new FileInputStream(ReadDataFromBuffer.class.getResource("/read.txt").getFile());
+        FileOutputStream fileOutputStream = new FileOutputStream(outPath);
+        FileInputStream fileInputStream = new FileInputStream(ReadFile2WriteFileFromBufferCase.class.getResource("/read.txt").getFile());
         FileChannel fileIn = fileInputStream.getChannel();
         FileChannel fileOut = fileOutputStream.getChannel();
 
